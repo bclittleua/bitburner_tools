@@ -10,6 +10,7 @@ collection of scripts i've found, modified, or wrote myself™
 - **monitor.js** displays server financial/security stats in a new window
 - **path.js** returns path to target server
 - **profit.js** list servers by how much money they make you
+- **randomcat.js** fetch and display a random cat image with *thecatapi.com*
 - **rtcheck.js** returns all servers that are not yet rooted
 - **serverbd.js** returns backdoor status on a ***target server***
 - **serverkiller.js** **DELETES all of YOUR** purchased servers (to make room for upgrades)
