@@ -6,7 +6,7 @@ collection of scripts i've found, modified, or wrote myself™
 - **deploy.js** deploys a specified script to target server
 - **hackservers.js** (requires worm.js) runs hack cycle on target server(s)
 - **hacman.js** hacknet manager, auto buys and upgrades nodes
-- **hallway.js** returns list of server with backdoor installed, *now with added flavor!*
+- **hallway.js** returns list of servers that do ***have backdoor installed***, *now with added flavor!*
 - **monitor.js** displays server financial/security stats in a new window
 - **path.js** returns path to target server
 - **profit.js** list servers by how much money they make you
