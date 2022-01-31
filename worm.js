@@ -1,7 +1,7 @@
 /** @param {NS} ns **/
-//Found. Propagates through network, roots all possible servers, copies self and hackservers.js,
-//then eventually runs hackservers.js on up to 5 target servers.
-//
+//Found. Requires hackservers.js
+//Propagates through network, roots all possible servers, copies self and hackservers.js,
+//then eventually runs hackservers.js on up to 5 target servers. Fucking Brilliant!
 //PROTIP: create an alias for target groups, i.e. <alias -g group5="ecorp megacorp kuai-gong omnitek nwo">
 //THEN: <worm group5> to start the process
 
