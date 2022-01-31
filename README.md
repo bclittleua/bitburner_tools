@@ -1,5 +1,5 @@
 # bitburner_tools
-collection of scripts i've found, modified, or wrote myself
+collection of scripts i've found, modified, or wrote myself™
 
 - **bdcheck.js** returns servers that do not have a backdoor installed
 - **conman.js** checks for AND solves contracts every 10 minutes
