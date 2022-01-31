@@ -13,5 +13,6 @@ collection of scripts i've found, modified, or wrote myself™
 - **serverbd.js** returns backdoor status on a target server
 - **serverkiller.js** **DELETES all of YOUR** purchased servers (to make room for upgrades)
 - **servershopper.js** automatically buys max amount of servers with configurable RAM amount
+- **stalker.js** configurable stockmarket daemon, requires 4S and TIX api
 - **stats.js** returns stats on target server that serverprofiler.exe does not
 - **worm.js** (requires hackservers.js) does what it sounds like, google 'worm virus'
