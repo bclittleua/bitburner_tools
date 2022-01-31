@@ -1,7 +1,7 @@
 /** @param {NS} ns **/
 //Found (see urlPrefix) and modified to run every ten minutes, has only failed one contract after hundreds of hours of use.
 //This script is purposely spammy in the terminal b/c I like it that way. 
-//Feel free to change it, obviously. lol.
+//Feel free to change it, obviously. lol. See bottom of code.
 
 let neverScan = ['home'];
 let scanCache = {};
