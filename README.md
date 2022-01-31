@@ -2,7 +2,7 @@
 collection of scripts i've found, modified, or wrote myself™
 
 - **bdcheck.js** returns all servers that do not have a backdoor installed
-- **conman.js** checks for AND solves contracts every 10 minutes
+- **conman.js** contract manager checks for AND solves contracts every 10 minutes
 - **deploy.js** deploys a specified script to target server
 - **hackservers.js** (requires worm.js) runs hack cycle on target server(s)
 - **hacman.js** hacknet manager, auto buys and upgrades nodes
