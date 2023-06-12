@@ -2,7 +2,7 @@
 //Found. Requires hackservers.js
 //Propagates through network, roots all possible servers, copies self and hackservers.js,
 //then eventually runs hackservers.js on up to 5 target servers. Fucking Brilliant!
-//PROTIP: create an alias for target groups, i.e. <alias -g group5="ecorp megacorp kuai-gong omnitek nwo">
+//PROTIP: create an alias for target groups, i.e. <alias -g group5="omnitek megacorp kuai-gong n00dles">
 //THEN: <worm group5> to start the process
 
 export async function main(ns) {
