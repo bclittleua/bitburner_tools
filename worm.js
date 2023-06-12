@@ -2,6 +2,7 @@
 //Found. Requires hackservers.js
 //Propagates through network, roots all possible servers, copies self and hackservers.js,
 //then eventually runs hackservers.js on up to 5 target servers. Fucking Brilliant!
+//I added a bit of randomness to the propogation interval in an effort to mitigate redundant tasking, unsure if it works tho, XD.
 //PROTIP: create an alias for target groups, i.e. <alias -g group5="ecorp megacorp kuai-gong omnitek nwo">
 //THEN: <worm group5> to start the process
 
