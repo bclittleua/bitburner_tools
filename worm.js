@@ -2,10 +2,12 @@
 //Found. Requires hackservers.js
 //Propagates through network, roots all possible servers, copies self and hackservers.js,
 //then eventually runs hackservers.js on up to 5 target servers. Fucking Brilliant!
-//PROTIP: create an alias for target groups, i.e. <alias -g group5="omnitek megacorp kuai-gong n00dles">
+//PROTIP: create an alias for target groups, i.e. <alias -g group5="ecorp megacorp kuai-gong omnitek nwo">
 //THEN: <worm group5> to start the process
 
 export async function main(ns) {
+//ns.tail(); //toggle a log window on start for debug
+
 //if no arguments provided tell the user how to use script.
 if (ns.args.length === 0) {
 ns.alert("Please include one or more arguments as server names to hack. The script will propogate across all servers and grow, weaken and hack the specified targets. As you get new hacking tools, kill all scripts and rerun from home.");
@@ -18,8 +20,7 @@ var scriptram = ns.getScriptRam('worm.js', 'home'); //get ram for this script
 var hackscriptram = ns.getScriptRam('hackservers.js', 'home'); //get ram for hack script
 var avsram = ns.getServerMaxRam(ns.getHostname()) - ns.getServerUsedRam(ns.getHostname()) + scriptram; //get available server ram for this server
 var hsthreads = Math.floor(avsram / hackscriptram); //calculate usethreads for hack script for this server
-var randomSleep = Math.floor(Math.random() * 300000) + 60000;
-
+var randomSleep = getRndInteger(60000,300000); //used to stagger interval of breeding/propogation
 
 await attackAll(hostservers,ns.getHostname());
 
@@ -37,6 +38,9 @@ await ns.scp('hackservers.js', ns.getHostname(), 'home');
 ns.spawn('hackservers.js', hsthreads, hsargs.toString());
 }
 
+function getRndInteger(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 async function attack(server) {
 var hacktoolnum = 0; //count and use hack tools owned if you don't have root
@@ -85,13 +89,10 @@ await ns.scp('worm.js', server, 'home');
 //if you don't see either script running on target server, run worm on it.
 if (!ns.scriptRunning('worm.js', server) && !ns.scriptRunning('hackservers.js', server)) {
 ns.print('running worm on ' + server);
-
-//toggle comment on either of next two lines for fast(10 secs) or slow(random between 1 and 5 minutes) breeding
-//await ns.sleep(10000); //fast
-await ns.sleep(randomSleep); //slow
-
+await ns.sleep(3000); 
 await ns.scp('worm.js', server, 'home');
 ns.exec('worm.js', server, 1, ...ogArgs);
+await ns.sleep(randomSleep); //randomly stagger breeding interval
 }
 }
 
