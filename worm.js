@@ -18,6 +18,7 @@ var scriptram = ns.getScriptRam('worm.js', 'home'); //get ram for this script
 var hackscriptram = ns.getScriptRam('hackservers.js', 'home'); //get ram for hack script
 var avsram = ns.getServerMaxRam(ns.getHostname()) - ns.getServerUsedRam(ns.getHostname()) + scriptram; //get available server ram for this server
 var hsthreads = Math.floor(avsram / hackscriptram); //calculate usethreads for hack script for this server
+var randomSleep = Math.floor(Math.random() * 300000) + 60000;
 
 
 await attackAll(hostservers,ns.getHostname());
@@ -31,7 +32,7 @@ hsargs.push(ns.getServerMaxMoney(argument));
 hsargs.push(ns.getServerRequiredHackingLevel(argument));
 }
 if (ns.getHostname() != 'home') { //copy hack script to this server and spawn script with threads and arguments as a single string
-await ns.scp('hackservers.js', 'home', ns.getHostname());
+await ns.scp('hackservers.js', ns.getHostname(), 'home');
 }
 ns.spawn('hackservers.js', hsthreads, hsargs.toString());
 }
@@ -77,15 +78,19 @@ ns.toast("unable to gain root to " + server, "error");
 
 async function worm(server) {
 //copy WORM script to server and run
-if (!ns.fileExists('worm.js', server)) {
+//if (!ns.fileExists('worm.js', server)) {  NOTE: disabled for now to ensure most current version of worm is being bred
 ns.print('worm.js being copied to ' + server);
-await ns.scp('worm.js', 'home', server);
-}
+await ns.scp('worm.js', server, 'home');
+//}
 //if you don't see either script running on target server, run worm on it.
 if (!ns.scriptRunning('worm.js', server) && !ns.scriptRunning('hackservers.js', server)) {
 ns.print('running worm on ' + server);
-await ns.sleep(3000);
-await ns.scp('worm.js', 'home', server);
+
+//toggle comment on either of next two lines for fast(10 secs) or slow(random between 1 and 5 minutes) breeding
+//await ns.sleep(10000); //fast
+await ns.sleep(randomSleep); //slow
+
+await ns.scp('worm.js', server, 'home');
 ns.exec('worm.js', server, 1, ...ogArgs);
 }
 }
